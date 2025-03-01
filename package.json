@@ -1,4 +1,13 @@
 {
+	"scripts": {
+		"build": "pnpm -r build",
+		"build:core": "pnpm --filter @orange-js/orange build",
+		"build:vite": "pnpm --filter @orange-js/vite build",
+		"dev:template": "pnpm build:core && pnpm build:vite && pnpm --filter orange-template dev",
+		"dev:boards": "pnpm build:core && pnpm build:vite && pnpm --filter @orange-js/boards dev",
+		"build:boards": "pnpm --filter @orange-js/boards build",
+		"deploy:boards": "pnpm --filter @orange-js/boards deploy"
+	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4"
 	},
@@ -6,7 +15,12 @@
 		"onlyBuiltDependencies": [
 			"@biomejs/biome",
 			"esbuild",
-			"workerd"
+			"workerd",
+			"core-js",
+			"sharp"
 		]
+	},
+	"dependencies": {
+		"react-router": "^7.2.0"
 	}
 }
